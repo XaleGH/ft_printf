@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 13:58:12 by asaux             #+#    #+#             */
-/*   Updated: 2023/10/25 10:44:59 by asaux            ###   ########.fr       */
+/*   Updated: 2023/10/25 10:55:16 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	ft_strlen(char *s)
 
 void	put_format(int conv, va_list liste, int *count)
 {
-	
-
 	if (conv == 'c')
 		ft_putchar(va_arg(liste, int), count);
 	else if (conv == 's')
@@ -49,13 +47,13 @@ void	print_address(va_list liste, int *count)
 	unsigned long	pvalue;
 
 	pvalue = va_arg(liste, unsigned long);
-		if (!pvalue)
-			ft_putstr("(nil)", count);
-		else
-		{
-			ft_putstr("0x", count);
-			ft_putnbr_ul(pvalue, "0123456789abcdef", count);
-		}
+	if (!pvalue)
+		ft_putstr("(nil)", count);
+	else
+	{
+		ft_putstr("0x", count);
+		ft_putnbr_ul(pvalue, "0123456789abcdef", count);
+	}
 }
 
 int	check_conv(char c)
